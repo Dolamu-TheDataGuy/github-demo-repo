@@ -28,10 +28,14 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: Run Python script
-        run: python create_file.py
+  display:
+  # The types of runner that the job will run on
+    runs-on: ubuntu-latest
 
-      - name: List all NEW files again
-        run: ls
+  # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: print a value
+        run: echo Hello from another metaverse!
+
 
   
