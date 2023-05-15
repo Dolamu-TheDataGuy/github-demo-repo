@@ -3,9 +3,7 @@ name: PR/Push
 # controls when the action will run
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ test_cli ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,14 +20,18 @@ jobs:
     # check out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: List all ORIGINAL files
+        run: ls
 
-      - name: Run a one-line script
-        run: echo Hello, World!
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
 
+      - name: Run Python script
+        run: python create_file.py
 
-      - name: Run a multi-line script
-        run:
-          echo Add other actions to build,
-          echo test, and deploy other stuffs.
+      - name: List all NEW files again
+        run: ls
 
   
