@@ -1,0 +1,15 @@
+name: dailyreport
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote the string
+    - cron: '*/5 * * * *' 
+    
+  workflow_dispatch:
+
+jobs:
+  my-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first-step
+        run: echo "Hello world!"
