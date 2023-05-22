@@ -1,5 +1,5 @@
 name: PR/Push
-
+# EVENTS
 # controls when the action will run
 on:
   push:
